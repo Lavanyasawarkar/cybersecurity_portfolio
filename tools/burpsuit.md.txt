@@ -1,0 +1,21 @@
+## 🧪 My Hands-On Experiment
+
+I intercepted a login request using Burp Suite and modified the parameters before forwarding it.
+
+### Original Request:
+POST /login HTTP/1.1
+Host: testphp.vulnweb.com
+
+username=test&password=test
+
+### Modified Request:
+POST /login HTTP/1.1
+Host: testphp.vulnweb.com
+
+username=admin&password=admin
+
+### Observation:
+- The server accepted modified input
+- This shows how user input is directly trusted
+
+👉 This is where vulnerabilities like SQL Injection can happen
