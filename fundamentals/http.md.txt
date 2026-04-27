@@ -1,0 +1,117 @@
+# 🌐 HTTP Fundamentals (Practical Understanding)
+
+## 🔍 What is HTTP?
+
+HTTP (HyperText Transfer Protocol) is the protocol used for communication between a client (browser) and a server.
+
+In simple terms:
+- You request → Server responds
+
+---
+
+## 🔁 How HTTP Works (Real Flow)
+
+1. Client sends request (GET /login)
+2. Server processes request
+3. Server sends response (HTML, JSON, etc.)
+
+---
+
+## 🧱 Structure of an HTTP Request
+
+Example:
+
+GET /login HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+Cookie: session=abc123
+
+### Key Components:
+- Method → GET, POST, PUT, DELETE
+- URL → /login
+- Headers → metadata (User-Agent, Cookie, etc.)
+- Body → used in POST requests
+
+---
+
+## 🧱 Structure of an HTTP Response
+
+Example:
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Set-Cookie: session=xyz789
+
+<html>...</html>
+
+### Key Components:
+- Status Code → 200, 404, 500
+- Headers → Content-Type, Set-Cookie
+- Body → actual content
+
+---
+
+## 🍪 Cookies & Sessions (Important)
+
+- Cookies store session data in the browser
+- Used for authentication
+
+Example:
+Cookie: session=abc123
+
+👉 If this is exposed or manipulated → authentication can break
+
+---
+
+## 🧪 Practical: Intercepting HTTP Traffic
+
+Tool used:
+- Burp Suite
+
+Steps:
+1. Enable proxy in Burp Suite
+2. Turn Intercept ON
+3. Open a website
+4. Capture request
+
+### Example Captured Request:
+
+POST /login HTTP/1.1
+Host: testphp.vulnweb.com
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=1234
+
+---
+
+## ⚠️ Why HTTP Matters in Cybersecurity
+
+
+Every web attack happens through HTTP.
+
+If you understand:
+- Requests
+- Headers
+- Cookies
+
+You can:
+- Modify data
+- Bypass authentication
+- Find vulnerabilities
+
+---
+
+## 🧠 What I Learned
+
+- HTTP is not just theory — it is directly exploitable
+- Small changes in requests can lead to security issues
+- Tools like Burp Suite expose how systems actually work
+
+---
+
+## 🚀 Next Step
+
+- Practice modifying requests
+- Learn vulnerabilities like:
+  - SQL Injection
+  - XSS
